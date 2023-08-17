@@ -7,7 +7,7 @@ const LeftBar = ({ props }) => {
     <div>
       <ul className={cl.leftBar__wrapper}>
         {props?.map((prop) => (
-          <li>
+          <li key={prop.name}>
             <Link to={prop.path} className={cl.link}>
               {prop.name}
             </Link>{" "}
