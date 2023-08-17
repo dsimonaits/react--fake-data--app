@@ -1,6 +1,7 @@
 :root {
   --primary-color: #000000;
   --secondary-color: #008080;
+  --contrast-color: #ffffffff;
 
   --primary-font: "Circe", sans-serif;
   --secondary-font: "Poppins", sans-serif;
