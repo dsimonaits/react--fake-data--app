@@ -1,5 +1,5 @@
 import React from "react";
-import { usePaginationCount } from "../../../hooks/usePagination";
+import { usePaginationCount } from "src/hooks/usePagination";
 import cl from "./Pagination.module.css";
 
 const Pagination = ({ totalPages, page, changePage }) => {

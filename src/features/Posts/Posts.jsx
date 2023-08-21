@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/App.css";
 import PostList from "./components/UI/PostList/PostList";
-import PostForm from "../Posts/components/PostForm";
+import PostForm from "./components/PostForm";
 import PostFilter from "./components/UI/PostFilter/PostFilter";
-import MyModal from "../Posts/components/UI/MyModal/MyModal";
-import MyButton from "../Posts/components/UI/button/MyButton";
+import MyModal from "src/components/UI/MyModal/MyModal";
+import MyButton from "src/components/UI/button/MyButton";
 import { usePosts } from "../Posts/hooks/usePost";
 import PostsService from "../Posts/API/PostsService";
-import Loader from "../Posts/components/UI/loader/loader";
-import useFetching from "../Posts/hooks/useFetching";
+import Loader from "src/components/UI/loader/loader";
+import useFetching from "src/hooks/useFetching";
 import { getPageCount } from "../Posts/utils/pages";
-import Pagination from "../Posts/components/UI/pagination/Pagination";
+import Pagination from "src/components/UI/pagination/Pagination";
 
 function Posts() {
   const [posts, setPosts] = useState([]);
@@ -43,12 +43,11 @@ function Posts() {
   };
 
   return (
-    <div>
-      <MyButton onClick={() => setModal(true)}>Create Post</MyButton>
+    <>
       <MyModal visible={modal} setVisible={setModal}>
         <PostForm create={createPost} />
       </MyModal>
-
+      <MyButton onClick={() => setModal(true)}>Create Post</MyButton>
       <PostFilter filter={filter} setFilter={setFilter} />
       {postsError && <h3>An error has occurred: ${postsError}</h3>}
       {isLoading ? (
@@ -69,7 +68,7 @@ function Posts() {
         />
       )}
       <Pagination totalPages={totalPages} page={page} changePage={setPage} />
-    </div>
+    </>
   );
 }
 

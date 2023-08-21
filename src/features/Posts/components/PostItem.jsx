@@ -1,16 +1,22 @@
 import React from "react";
-import MyButton from "./UI/button/MyButton";
+import MyButton from "../../../components/UI/button/MyButton";
+import { useNavigate, useLocation } from "react-router";
 
 const PostItem = (props) => {
+  const newPath = useNavigate();
+  const location = useLocation();
   return (
-    <div className="post">
-      <div className="post__content">
+    <div>
+      <div
+        onClick={() => newPath(`${location.pathname}/${props.number}`)}
+        style={{ cursor: "pointer" }}
+      >
         <strong>
           {props.number}. {props.post.title}
         </strong>
         <p>{props.post.body}</p>
       </div>
-      <div className="post__btns">
+      <div>
         <MyButton onClick={() => props.remove(props.post)}>Delete</MyButton>
       </div>
     </div>

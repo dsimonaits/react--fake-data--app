@@ -11,3 +11,7 @@
     color: var(--secondary-color);
   }
 }
+
+.nav__item_active {
+  color: var(--secondary-color);
+}

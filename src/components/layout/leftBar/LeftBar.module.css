@@ -1,23 +1,21 @@
 .leftBar__wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  min-width: 10vw;
-  height: 80vh;
-  padding: 5px;
-
-  /* border: 1px solid var(--secondary-color); */
+  padding: 0px 15px 20px 15px;
 }
 
 .link {
-  display: flex;
-  justify-content: center;
   padding: 5px;
   border: 1px solid var(--secondary-color);
   border-radius: 5px;
+  min-width: 70px;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: var(--contrast-color);
     background-color: var(--secondary-color);
   }
+}
+
+.link_active {
+  color: var(--contrast-color);
+  background-color: var(--secondary-color);
 }

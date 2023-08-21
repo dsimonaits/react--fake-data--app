@@ -1,18 +1,21 @@
 import React from "react";
-import Container from "../components/layout/container/Container";
-import LeftBar from "../components/layout/leftBar/LeftBar";
-import { Outlet } from "react-router";
+import LeftBar from "src/components/layout/leftBar/LeftBar";
+import { Outlet, useLocation } from "react-router";
 
 const Applications = () => {
-  const applicationList = [
-    { name: "Posts", path: "posts" },
-    { name: "ToDo`s", path: "todos" },
-    { name: "Contacts", path: "contacts" },
-  ];
+  const applicationList = [{ name: "Posts", path: "posts" }];
+
+  const location = useLocation();
 
   return (
     <>
       <LeftBar props={applicationList} />
+      {location.pathname === "/applications" && (
+        <h3 style={{ textAlign: "center" }}>
+          Choose application from the list.
+        </h3>
+      )}
+
       <div>
         <Outlet />
       </div>
